@@ -6,6 +6,7 @@ import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import App from './components/App';
 
@@ -14,16 +15,7 @@ import reducers from 'reducers/index';
 require('normalize.css/normalize.css');
 require('styles/App.scss');
 
-
-//import Form from './invite/Form';
-
-/*
- const Main = () => (
- <MuiThemeProvider>
- <Layout />
- </MuiThemeProvider>
- );
- */
+injectTapEventPlugin();
 
 ReactDOM.render(
     <Provider store={createStore(reducers)}>
