@@ -1,7 +1,34 @@
 import 'core-js/fn/object/assign';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/Main';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-// Render the main component into the dom
-ReactDOM.render(<App />, document.getElementById('app'));
+import App from './components/App';
+
+import reducers from 'reducers/index';
+
+require('normalize.css/normalize.css');
+require('styles/App.scss');
+
+
+//import Form from './invite/Form';
+
+/*
+ const Main = () => (
+ <MuiThemeProvider>
+ <Layout />
+ </MuiThemeProvider>
+ );
+ */
+
+ReactDOM.render(
+    <Provider store={createStore(reducers)}>
+        <MuiThemeProvider muiTheme={getMuiTheme()}>
+            <App />
+        </MuiThemeProvider>
+    </Provider>
+    , document.getElementById('app'));
