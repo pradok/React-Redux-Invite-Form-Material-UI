@@ -1,8 +1,9 @@
-.dialog--invite {
-  display: flex;
-  justify-content: center;
+.dialog--invite-form {
+  //display: flex;
+  //justify-content: center;
+  .invite--message-box {
+    margin-top: 20px;
+    text-align: center;
+  }
 }
 
-.invite--message-box {
-  margin-top: 20px;
-}

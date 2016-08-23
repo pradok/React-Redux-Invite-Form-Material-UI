@@ -1,11 +1,10 @@
 import { combineReducers } from 'redux';
-import { reducer as reduxFormReducer } from 'redux-form';
-import testReducer from './reducertest';
+
+import reducerInvite from 'components/invite/reducers/reducerInvite';
 
 
 const rootReducer = combineReducers({
-    form: reduxFormReducer,
-    test: testReducer
+    invite: reducerInvite
 });
 
 export default rootReducer;

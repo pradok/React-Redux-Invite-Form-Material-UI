@@ -34,11 +34,10 @@ export default class InviteButton extends Component {
                     open={this.state.open}
                     onRequestClose={this.handleClose}
                     autoScrollBodyContent={true}
-                    className="dialog--invite"
-                    style ={{textAlign: 'center'}}
+                    className="dialog--invite-form"
+                    titleStyle ={{textAlign: 'center'}}
                 >
                     <Form />
-                    <div className="invite--message-box">sdfwer</div>
 
                 </Dialog>
             </div>
