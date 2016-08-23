@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-const Form = require ('components/invite/Form').default;
+import Form from 'components/invite/Form';
 
 export default class App extends Component {
     render() {
@@ -10,7 +10,7 @@ export default class App extends Component {
                     Broccoli & CO
                 </header>
                 <main>
-                    <h2>A better way to enjoy every day</h2>
+                    <h2>A better way to enjoy every day </h2>
                     <p>Be the first to know when we launch</p>
                     <Form />
                 </main>
