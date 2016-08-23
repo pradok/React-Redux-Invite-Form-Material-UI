@@ -1,10 +1,13 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 
 import RaisedButton from 'material-ui/RaisedButton';
 import Formsy from 'formsy-react';
 import {FormsyText} from 'formsy-material-ui/lib';
 
-export default class Form extends Component {
+import { sendInvite } from './actions/index';
+
+class Form extends Component {
 
     state = {
         canSubmit: false
@@ -36,7 +39,8 @@ export default class Form extends Component {
     };
 
     submitForm = (data) => {
-        alert(JSON.stringify(data, null, 4));
+        delete data.emailConfirm;
+        this.props.sendInvite(data);
     };
 
     notifyFormError = (data) => {
@@ -64,6 +68,7 @@ export default class Form extends Component {
                         validationErrors={{isWords: nameError, minLength: lengthError}}
                         required
                         floatingLabelText="Full Name"
+                        style ={{width: '100%'}}
                     />
                     <FormsyText
                         name="email"
@@ -71,6 +76,7 @@ export default class Form extends Component {
                         validationError={emailError}
                         required
                         floatingLabelText="Email"
+                        style ={{width: '100%'}}
                     />
                     <FormsyText
                         name="emailConfirm"
@@ -78,13 +84,15 @@ export default class Form extends Component {
                         validationError={emailConfirmError}
                         required
                         floatingLabelText="Confirm email"
+                        style ={{width: '100%'}}
                     />
 
                     <RaisedButton
                         style={submitStyle}
                         type="submit"
-                        label="Submit"
+                        label="Send"
                         disabled={!this.state.canSubmit}
+                        style ={{width: '100%', marginTop:'50px'}}
                     />
                 </Formsy.Form>
 
@@ -92,3 +100,5 @@ export default class Form extends Component {
         );
     }
 }
+
+export default connect(null, { sendInvite })(Form);

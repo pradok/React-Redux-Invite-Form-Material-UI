@@ -5,6 +5,9 @@ import Dialog from 'material-ui/Dialog';
 
 import Form from './Form';
 
+require('./sass/inviteForm.scss');
+
+
 export default class InviteButton extends Component {
 
     state = {
@@ -31,8 +34,11 @@ export default class InviteButton extends Component {
                     open={this.state.open}
                     onRequestClose={this.handleClose}
                     autoScrollBodyContent={true}
+                    className="dialog--invite"
+                    style ={{textAlign: 'center'}}
                 >
                     <Form />
+                    <div className="invite--message-box">sdfwer</div>
 
                 </Dialog>
             </div>
