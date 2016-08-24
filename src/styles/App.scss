@@ -3,16 +3,22 @@ html {
 }
 
 .app {
-
+  header, h2, h1, footer, em, p{
+    font-family: 'Roboto', sans-serif;
+    font-weight:lighter;
+  }
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font: 16px/1.5 sans-serif;
+  font: 16px/1.5 'Roboto';
 
   main {
     flex: 1 0 auto;
-    background-color: #3D9970;
+    background-color: #EEEEEE;
     text-align: center;
+    h2, p {
+      color: #424242;
+    }
   }
 
   p {
@@ -25,12 +31,12 @@ html {
   }
 
   header {
-    background-color: #85144B;
+    background-color: #00BCD4;
     text-transform: uppercase;
   }
 
   footer {
-    background-color: #001F3F;
+    background-color: #01579B;
     text-align: center;
   }
 

@@ -5,7 +5,6 @@ const INITIAL_STATE = { };
 export default function(state = INITIAL_STATE, action) {
     switch(action.type) {
         case INVITE_POST:
-            console.log('action.payload', action);
             if(action.payload.status == 200) {
                 return { ...state, success: action.payload.data, error: false };
             }

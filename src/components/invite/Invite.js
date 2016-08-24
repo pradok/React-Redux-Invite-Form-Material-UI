@@ -31,18 +31,13 @@ class Invite extends Component {
     handleCloseSuccessDialog = () => {
         this.setState({openSuccessDialog: false});
         this.setState({open: false});
-        console.log('this.props', this.props);
     };
 
     componentWillReceiveProps(nextProps) {
-        console.log('nextProps', nextProps);
         if(nextProps.invite.success) {
             this.handleCloseInviteDialog();
             this.handleOpenSuccessDialog();
         }
-    }
-    componentWillUpdate(nextProps, nextState) {
-        console.log('nextProps', nextProps, 'nextState', nextState);
     }
 
 
@@ -85,7 +80,6 @@ class Invite extends Component {
 
 export default connect(
     (state) => {
-        console.log('InviteButton state = ', state);
         return {invite: state.invite};
     }
     )(Invite);

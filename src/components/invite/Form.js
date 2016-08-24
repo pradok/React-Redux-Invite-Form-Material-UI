@@ -30,7 +30,6 @@ class Form extends Component {
         this.setState({
             labelSendButton: 'Send'
         });
-        console.log('componentWillReceiveProps(nextProps) :', nextProps);
         if (nextProps.invite.error) {
             this.setState({
                 canSubmit: true
@@ -84,7 +83,7 @@ class Form extends Component {
     showAlert = (msg = 'Unknown error from server') => {
         this.msg.show(msg, {
             type: 'error',
-            time: 0,
+            time: 3000,
             transition: 'fade'
         });
     };
@@ -145,8 +144,6 @@ class Form extends Component {
 
 export default connect(
     (state) => {
-        console.log('Invite Form state = ', state);
-        console.log('this', this);
         return {invite: state.invite};
     }
     , {sendInvite})(Form);
