@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import InviteButton from 'components/invite/InviteButton';
+import Invite from 'components/invite/Invite';
 
 export default class App extends Component {
     render() {
@@ -12,7 +12,7 @@ export default class App extends Component {
                 <main>
                     <h2>A better way to enjoy every day </h2>
                     <p>Be the first to know when we launch</p>
-                    <InviteButton />
+                    <Invite />
                 </main>
                 <footer>
                     <em>Made with love in Melbourne<br/>

@@ -2,8 +2,14 @@
   //display: flex;
   //justify-content: center;
   .invite--message-box {
-    margin-top: 20px;
     text-align: center;
+  }
+  .react-alerts {
+    position: relative;
+    top: 10px !important;
+    .alert {
+      margin: 10px auto 0 auto;
+    }
   }
 }
 

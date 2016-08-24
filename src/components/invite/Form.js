@@ -4,19 +4,23 @@ import {connect} from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import Formsy from 'formsy-react';
 import {FormsyText} from 'formsy-material-ui/lib';
+import AlertContainer from 'react-alert';
 
 import {sendInvite} from './actions/index';
 
-
 class Form extends Component {
-
 
     constructor(props) {
         super(props);
-
     }
 
     componentWillMount() {
+        this.setState({
+            labelSendButton: 'Send'
+        });
+    }
+
+    componentWillUnmount() {
         this.setState({
             labelSendButton: 'Send'
         });
@@ -27,11 +31,14 @@ class Form extends Component {
             labelSendButton: 'Send'
         });
         console.log('componentWillReceiveProps(nextProps) :', nextProps);
-        if (nextProps.invite.invitePostResponse == 'Registered') {
+        if (nextProps.invite.error) {
             this.setState({
                 canSubmit: true
             });
+
+            this.showAlert(nextProps.invite.error);
         }
+
     }
 
     state = {
@@ -44,12 +51,6 @@ class Form extends Component {
         emailError: 'Please specify valid email address',
         emailConfirmError: 'Please confirm email',
         lengthError: 'Please provide more than 3 characters'
-    };
-
-    styles = {
-        submitStyle: {
-            marginTop: 32
-        }
     };
 
     enableButton = () => {
@@ -80,10 +81,17 @@ class Form extends Component {
         console.error('Form error:', data);
     };
 
+    showAlert = (msg = 'Unknown error from server') => {
+        this.msg.show(msg, {
+            type: 'error',
+            time: 0,
+            transition: 'fade'
+        });
+    };
+
 
     render() {
 
-        let {submitStyle} = this.styles;
         let {nameError, emailError, lengthError, emailConfirmError} = this.errorMessages;
 
         return (
@@ -121,16 +129,14 @@ class Form extends Component {
                     />
 
                     <RaisedButton
-                        style={submitStyle}
                         type="submit"
                         label={this.state.labelSendButton}
                         disabled={!this.state.canSubmit}
-                        style={{width: '100%', marginTop:'50px'}}
+                        style={{width: '100%', marginTop: '50px'}}
                     />
                 </Formsy.Form>
 
-                <div className="invite--message-box"></div>
-
+                <AlertContainer ref={a => this.msg = a} />
 
             </div>
         );

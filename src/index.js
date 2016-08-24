@@ -14,7 +14,7 @@ import App from './components/App';
 import reducers from 'reducers/index';
 
 require('normalize.css/normalize.css');
-//require('styles/App.scss');
+require('styles/App.scss');
 
 injectTapEventPlugin();
 
