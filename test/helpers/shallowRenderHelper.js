@@ -7,6 +7,15 @@
  */
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
+import ReduxPromise from 'redux-promise';
+import {createStore, combineReducers, applyMiddleware} from 'redux';
+
+export function getStore(mappingObject) {
+  const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
+  return createStoreWithMiddleware(combineReducers(mappingObject));
+}
+
+
 
 /**
  * Get the shallow rendered component
@@ -21,3 +30,5 @@ export default function createComponent(component, props = {}, ...children) {
   shallowRenderer.render(React.createElement(component, props, children.length > 1 ? children : children[0]));
   return shallowRenderer.getRenderOutput();
 }
+
+

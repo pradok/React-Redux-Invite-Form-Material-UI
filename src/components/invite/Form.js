@@ -77,7 +77,6 @@ class Form extends Component {
     };
 
     notifyFormError = (data) => {
-        console.error('Form error:', data);
     };
 
     showAlert = (msg = 'Unknown error from server') => {
@@ -94,7 +93,7 @@ class Form extends Component {
         let {nameError, emailError, lengthError, emailConfirmError} = this.errorMessages;
 
         return (
-            <div>
+            <div className="form--invite">
 
                 <Formsy.Form
                     onValid={this.enableButton}
