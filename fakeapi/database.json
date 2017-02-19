@@ -1,0 +1,14 @@
+{
+  "invite": [
+    {
+      "id": 1,
+      "email": "someone@some.com",
+      "name": "PPP"
+    },
+    {
+      "name": "jso",
+      "email": "poo@some.com",
+      "id": 2
+    }
+  ]
+}

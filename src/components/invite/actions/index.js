@@ -2,10 +2,10 @@ import axios from 'axios';
 
 export const INVITE_POST = 'INVITE_POST';
 
-const ROOT_URL = 'https://l94wc2001h.execute-api.ap-southeast-2.amazonaws.com';
+const ROOT_URL = 'http://localhost:3000';
 
 export function sendInvite(data) {
-    const request = axios.post(`${ROOT_URL}/prod/fake-auth`, data);
+    const request = axios.post(`${ROOT_URL}/invite`, data);
 
     return {
         type: INVITE_POST,
